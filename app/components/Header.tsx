@@ -8,7 +8,7 @@ import User from "./ui/buttons/User";
 export default function Header() {
   return (
     <header className="py-4 fixed top-0 left-0 right-0 bg-white z-10">
-      <nav className="flex items-center justify-between mx-12">
+      <nav className="flex items-center justify-between mx-12 text-zinc-700">
         {/* LEFT */}
         <div className="flex-1">
           <ul className="flex gap-6 tracking-wide">
