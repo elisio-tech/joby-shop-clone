@@ -1,3 +1,4 @@
+import React from "react";
 import { products } from "../data/products";
 import Image from "next/image";
 
@@ -11,17 +12,18 @@ export default function Products() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
         {products.map((product) => (
           <div key={product.id} className="group flex flex-col cursor-pointer">
-            <div className="relative aspect-4/5 overflow-hidden">
+            <div className="relative">
               <Image
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-500 group-hover:scale-100"
                 src={product.image}
                 alt={product.name}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                width={600}
+                height={200}
                 priority={product.id <= 3}
               />
             </div>
 
+            {/* Detalhes do Produto */}
             <div className="mt-4 flex flex-col gap-1">
               <div className="flex justify-between items-start">
                 <h4 className="text-lg font-medium leading-tight max-w-[70%]">

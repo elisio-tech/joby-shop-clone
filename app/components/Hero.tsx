@@ -7,14 +7,16 @@ export default function Hero() {
       <div className="flex grow items-center justify-center gap-16 px-12">
         <h1 className="text-8xl font-bold">Move fast.</h1>
 
-        <Image
-          className="rounded-4xl"
-          src="/hero.avif"
-          alt="Hero"
-          width={400}
-          height={100}
-          priority
-        />
+        <div>
+          <Image
+            className="rounded-4xl"
+            src="/hero.avif"
+            alt="Hero"
+            width={400}
+            height={100}
+            priority
+          />
+        </div>
 
         <h1 className="text-8xl font-bold">Look Bold.</h1>
       </div>

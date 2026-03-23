@@ -9,7 +9,6 @@ export default function Header() {
   return (
     <header className="py-4 fixed top-0 left-0 right-0 bg-white z-10">
       <nav className="flex items-center justify-between mx-12 text-zinc-700">
-        {/* LEFT */}
         <div className="flex-1">
           <ul className="flex gap-6 tracking-wide">
             <li>
@@ -21,7 +20,6 @@ export default function Header() {
           </ul>
         </div>
 
-        {/* CENTER */}
         <div className="flex-1 flex justify-center">
           <Link href="/">
             <Image
@@ -33,7 +31,6 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* RIGHT */}
         <div className="flex-1 flex justify-end gap-4 items-center">
           <Search />
           <User />

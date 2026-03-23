@@ -4,9 +4,7 @@ import Link from "next/link";
 
 export default function Shop() {
   return (
-    /* Mudamos para 3 colunas no desktop: a imagem ocupa 2 e o texto 1 */
     <div className="grid grid-cols-1 lg:grid-cols-3 mx-12 gap-12 mb-20">
-      {/* Imagem dominando o layout (col-span-2) */}
       <div className="lg:col-span-2 w-full">
         <Image
           src="/Frame_16.webp"
@@ -18,9 +16,8 @@ export default function Shop() {
         />
       </div>
 
-      {/* Texto e botão lateralizados */}
       <div className="flex flex-col items-start">
-        <h1 className="text-4xl lg:text-8xl mb-8 font-bebas leading-none tracking-tighter">
+        <h1 className="text-4xl lg:text-6xl mb-8 font-bebas leading-none tracking-tighter">
           Elevate your <br /> everyday.
         </h1>
 
