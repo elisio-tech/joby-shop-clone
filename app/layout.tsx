@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bebas_Neue } from "next/font/google";
 import "./globals.css";
+import Header from "./components/Header";
 
 const bebas = Bebas_Neue({
   subsets: ["latin"],
@@ -20,7 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${bebas.className}  h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
