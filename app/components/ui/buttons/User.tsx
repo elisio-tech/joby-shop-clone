@@ -2,7 +2,7 @@ import React from "react";
 
 export default function User() {
   return (
-    <button className="cursor-pointer">
+    <button className="cursor-pointer hover:opacity-30 transition-all duration-200">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"

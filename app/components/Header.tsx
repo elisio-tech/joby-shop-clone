@@ -11,10 +11,10 @@ export default function Header() {
       <nav className="flex items-center justify-between mx-12 text-zinc-700">
         <div className="flex-1">
           <ul className="flex gap-6 tracking-wide">
-            <li>
+            <li className="hover:text-blue-500 transition-all duration-200">
               <Link href="/shop-all">Shop All</Link>
             </li>
-            <li>
+            <li className="hover:text-blue-500 transition-all duration-200">
               <Link href="/returns">Returns / Exchanges</Link>
             </li>
           </ul>

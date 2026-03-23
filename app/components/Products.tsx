@@ -23,7 +23,6 @@ export default function Products() {
               />
             </div>
 
-            {/* Detalhes do Produto */}
             <div className="mt-4 flex flex-col gap-1">
               <div className="flex justify-between items-start">
                 <h4 className="text-lg font-medium leading-tight max-w-[70%]">
