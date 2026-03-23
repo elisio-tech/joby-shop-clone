@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const bebas = Bebas_Neue({
   subsets: ["latin"],
@@ -12,6 +13,7 @@ const bebas = Bebas_Neue({
 export const metadata: Metadata = {
   title: "Joby Shop Clone",
   description: "E-commerce UI inspired by Joby Aviation",
+  icons: "/joby_logo_blue.svg",
 };
 
 export default function RootLayout({
@@ -24,6 +26,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

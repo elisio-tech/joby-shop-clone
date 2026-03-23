@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Shop() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 mx-12 gap-12 mb-20">
+    <div className="grid grid-cols-1 lg:grid-cols-3 mx-12 gap-12 mb-20 text-zinc-700">
       <div className="lg:col-span-2 w-full">
         <Image
           src="/Frame_16.webp"

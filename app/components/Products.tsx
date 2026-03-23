@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Products() {
   return (
-    <section className="mx-12 py-12">
+    <section className="mx-12 py-12 text-zinc-700">
       <h2 className="text-3xl font-bold mb-8 uppercase tracking-tight">
         Joby Essentials
       </h2>
