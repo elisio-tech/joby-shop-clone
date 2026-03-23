@@ -7,7 +7,7 @@ import User from "./ui/buttons/User";
 
 export default function Header() {
   return (
-    <header className="py-4 fixed top-0 left-0 right-0">
+    <header className="py-4 fixed top-0 left-0 right-0 bg-white z-10">
       <nav className="flex items-center justify-between mx-12">
         {/* LEFT */}
         <div className="flex-1">
