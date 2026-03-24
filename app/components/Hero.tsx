@@ -3,9 +3,9 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="flex flex-col h-screen">
+    <section className="flex flex-col h-screen bg-blue-500">
       <div className="flex grow items-center justify-center gap-16 px-12 text-zinc-700">
-        <h1 className="text-8xl font-bold">Move fast.</h1>
+        <h1 className="text-8xl font-bold text-white">Move fast.</h1>
 
         <div>
           <Image
@@ -18,11 +18,11 @@ export default function Hero() {
           />
         </div>
 
-        <h1 className="text-8xl font-bold">Look Bold.</h1>
+        <h1 className="text-8xl font-bold text-white">Look Bold.</h1>
       </div>
 
       <div className="w-full">
-        <div className="bg-blue-500 py-12" />
+        <div className="bg-blue-700 py-12" />
         <div className="bg-orange-500 py-3" />
       </div>
     </section>

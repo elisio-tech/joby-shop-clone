@@ -4,26 +4,54 @@ import Image from "next/image";
 import Search from "./ui/buttons/Search";
 import ShoppingCart from "./ui/buttons/ShoppingCart";
 import User from "./ui/buttons/User";
+import { useEffect, useState } from "react";
 
 export default function Header() {
+  const [scroll, setScroll] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScroll(window.scrollY);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const isScrolled = scroll > 50;
+
   return (
-    <header className="py-4 fixed top-0 left-0 right-0 bg-white z-10">
-      <nav className="flex items-center justify-between mx-12 text-zinc-700">
+    <header
+      className={`py-6 fixed top-0 left-0 right-0 z-10 transition-all duration-300 ${
+        isScrolled ? "bg-white shadow-sm" : "bg-blue-500"
+      }`}
+    >
+      <nav className="flex items-center justify-between mx-12 transition-colors duration-300">
         <div className="flex-1">
           <ul className="flex gap-6 tracking-wide">
-            <li className="hover:text-blue-500 transition-all duration-200">
+            <li
+              className={` transition-all duration-200 ${
+                isScrolled
+                  ? "text-black hover:text-blue-500"
+                  : "text-white hover:text-zinc-300"
+              }`}
+            >
               <Link href="/shop-all">Shop All</Link>
             </li>
-            <li className="hover:text-blue-500 transition-all duration-200">
+            <li
+              className={` transition-all duration-200 ${
+                isScrolled
+                  ? "text-black hover:text-blue-500"
+                  : "text-white hover:text-zinc-300"
+              }`}
+            >
               <Link href="/returns">Returns / Exchanges</Link>
             </li>
           </ul>
         </div>
 
-        <div className="flex-1 flex justify-center">
+        <div className="flex-1 flex justify-center ">
           <Link href="/">
             <Image
-              src="/joby_logo_blue.svg"
+              src={isScrolled ? "/joby_logo_blue.svg" : "/joby_logo_white.svg"}
               alt="Joby Logo"
               width={90}
               height={40}
@@ -31,7 +59,9 @@ export default function Header() {
           </Link>
         </div>
 
-        <div className="flex-1 flex justify-end gap-4 items-center">
+        <div
+          className={`${isScrolled ? "text-zinc-700" : "text-white"} flex-1 flex justify-end gap-4 items-center `}
+        >
           <Search />
           <User />
           <ShoppingCart />
