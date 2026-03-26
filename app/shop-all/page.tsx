@@ -2,11 +2,13 @@ import React from "react";
 import { products } from "../data/products";
 import Image from "next/image";
 import Link from "next/link";
+import SearchBox from "../components/SearchBox";
 
 export default function Page() {
   return (
-    <div className="pt-32 mx-12">
+    <div className="pt-32 mx-12 relative">
       <h1 className="text-6xl text-zinc-800 mb-8">Products</h1>
+      <SearchBox />
       <div className="flex justify-between items-center mb-4">
         <span className="text-zinc-500">Products availably</span>
         <ul className="text-zinc-600 inline-flex gap-4">

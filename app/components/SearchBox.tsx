@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { products } from "../data/products";
+import Link from "next/link";
 
 export default function SearchBox() {
   const [search, setSearch] = useState("");
@@ -11,7 +12,6 @@ export default function SearchBox() {
 
   return (
     <section className="absolute bg-white shadow-md p-4 w-80 rounded-md">
-      {/* INPUT */}
       <input
         type="text"
         placeholder="Search products..."
@@ -19,24 +19,22 @@ export default function SearchBox() {
         onChange={(e) => setSearch(e.target.value)}
         className="w-full border p-2 rounded mb-2"
       />
-      {/* Resultado */}
-      { search  }
 
-      {/* apenas lista 4 produtos*/}
+      {search &&
+        filteredProducts.map((product) => (
+          <div key={product.id}>
+            <Link href={`product/${product.id}`}>
+              <p>{product.name}</p>
+            </Link>
+          </div>
+        ))}
 
       <div className="flex flex-col gap-2 max-h-60 overflow-y-auto">
-        {filteredProducts.length > 0 ? (
-          filteredProducts.slice(0, 4).map((product) => (
-            <div
-              key={product.id}
-              className="p-2 hover:bg-zinc-100 cursor-pointer rounded"
-            >
-              <p className="text-sm">{product.name}</p>
-            </div>
-          ))
-        ) : (
-          <p className="text-sm text-gray-500">No results found</p>
-        )}
+        {products.slice(0, 4).map((product) => (
+          <div key={product.id}>
+            <p>{product.name}</p>
+          </div>
+        ))}
       </div>
     </section>
   );

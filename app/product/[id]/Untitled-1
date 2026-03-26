@@ -1,0 +1,85 @@
+"use client"; // <--- Adicione isso
+
+import { Product, products } from "@/app/data/products";
+import Image from "next/image";
+import { useState, use } from "react";
+
+interface PageProps {
+  params: Promise<{ id: string }>;
+}
+
+export default function Page({ params }: PageProps) {
+  const { id } = use(params);
+  const [qty, setQty] = useState(1);
+
+  const product = products.find((p: Product) => p.id === Number(id));
+
+  if (!product) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen">
+        <span className="text-6xl font-bold text-zinc-200">404</span>
+        <p>Product not found!</p>
+      </div>
+    );
+  }
+
+  return (
+    <section className="flex flex-col md:flex-row gap-12 py-10 mx-4">
+      <div className="flex flex-col flex-1 justify-center">
+        <h1 className="text-5xl font-bold w-76 mb-2 text-zinc-900">
+          {product.name}
+        </h1>
+        <span className="text-3xl font-medium text-blue-600 mb-8">
+          ${product.price}
+        </span>
+
+        <div className="mb-8">
+          <p className="font-bold mb-4 uppercase text-sm tracking-wider text-zinc-500">
+            Select Size
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {product.sizes.map((size) => (
+              <button
+                key={size}
+                className="min-w-15 h-12 border border-zinc-200 rounded-lg hover:border-blue-500 transition-colors font-medium active:scale-95"
+              >
+                {size}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+          <div className="flex items-center justify-between border border-zinc-300 rounded-full px-2 py-1 h-14 bg-white">
+            <button
+              onClick={() => setQty(Math.max(1, qty - 1))}
+              disabled={qty === 1}
+              className={`w-10 h-10 flex items-center justify-center rounded-full text-2xl transition-all ${
+                qty === 1
+                  ? "text-zinc-300 cursor-not-allowed"
+                  : "text-zinc-600 hover:bg-zinc-100 cursor-pointer"
+              }`}
+            >
+              -
+            </button>
+
+            <span className="min-w-10 text-center font-semibold text-lg">
+              {qty}
+            </span>
+
+            <button
+              onClick={() => setQty(qty + 1)}
+              className="w-10 h-10 flex items-center justify-center rounded-full text-2xl text-zinc-600 hover:bg-zinc-100 cursor-pointer transition-all"
+            >
+              +
+            </button>
+          </div>
+
+          <button className="flex-1 h-14 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full transition-transform active:scale-[0.98] cursor-pointer shadow-lg shadow-blue-100">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
